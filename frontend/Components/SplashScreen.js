@@ -24,17 +24,17 @@ const SplashScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {/* <Image
-        source={require("../moralis-logo.png")}
+       <Image
+        source={require("../logo1.png")}
         style={{ width: "90%", resizeMode: "contain", margin: 30 }}
-      /> */}
-      <LottieView source={Animation} loop autoplay />
+      /> 
+      {/*<LottieView source={Animation} loop autoplay />
       <ActivityIndicator
         animating={animating}
         color="#FFFFFF"
         size="large"
         style={styles.activityIndicator}
-      />
+  />*/}
     </View>
   );
 };

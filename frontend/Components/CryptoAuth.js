@@ -33,6 +33,7 @@ import LottieView from "lottie-react-native";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Animation from "../splashLottie.json";
+import { url } from "inspector";
 
 // import Loader from './Components/Loader';
 const windowWidth = Dimensions.get("window").width;
@@ -90,21 +91,18 @@ const LoginScreen = ({ navigation }) => {
             justifyContent: "center",
             alignContent: "center",
           }}>
-          <Image
-            style={{ flex: 1, maxWidth: '100%', alignSelf: 'center' }}
-            source={require("../eth.png")}
-          />
+    
           <View style={{ flex: 1 }}>
             <KeyboardAvoidingView enabled>
               <View style={{ alignItems: "center" }}>
-                <LottieView source={Animation} loop autoPlay />
+                {/*<LottieView source={Animation} loop autoPlay />*/}
                 <Image
-                  source={require("../moralis-logo.png")}
+                  source={require("../logo1.png")}
                   style={{
                     width: "50%",
                     height: 100,
                     resizeMode: "contain",
-                    margin: 30,
+                    margin: 100,
                   }}
                 />
               </View>
@@ -134,7 +132,7 @@ const LoginScreen = ({ navigation }) => {
                 style={styles.buttonStyle}
                 activeOpacity={0.5}
                 onPress={handleCryptoLogin}>
-                <Text style={styles.buttonTextStyle}>Crypto Wallet Login</Text>
+                <Text style={styles.buttonTextStyle}>Connect Wallet</Text>
               </TouchableOpacity>
               <Text
                 style={styles.registerTextStyle}
@@ -156,7 +154,7 @@ const styles = StyleSheet.create({
   mainBody: {
     flex: 1,
     justifyContent: "center",
-    backgroundColor: "white",
+    backgroundColor: "rgb(26, 25, 25)",
     alignContent: "center",
   },
   SectionStyle: {
@@ -168,7 +166,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonStyle: {
-    backgroundColor: "#7DE24E",
+    backgroundColor: "#FFBB3B",
     borderWidth: 0,
     color: "#FFFFFF",
     borderColor: "#7DE24E",
@@ -177,7 +175,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     marginLeft: 35,
     marginRight: 35,
-    marginTop: 20,
+    marginTop: 200,
     marginBottom: 25,
   },
   buttonTextStyle: {
@@ -196,7 +194,7 @@ const styles = StyleSheet.create({
     borderColor: "#dadae8",
   },
   registerTextStyle: {
-    color: "black",
+    color: "white",
     textAlign: "center",
     fontWeight: "bold",
     fontSize: 14,

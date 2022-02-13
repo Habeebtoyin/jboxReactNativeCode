@@ -35,7 +35,7 @@ const Profile = ({ navigation }) => {
       <View style={styles.button}>
         <Button
           title="Logout"
-          color="white"
+          color="black"
           disabledStyle={{
             borderWidth: 2,
             borderColor: "#00F",

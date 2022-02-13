@@ -11,12 +11,18 @@ import { LogBox } from "react-native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import SplashScreen from "./Components/SplashScreen";
 import CryptoAuth from "./Components/CryptoAuth";
-import RecentTransactions from "./Components/RecentTransactions/RecentTransactions";
-import Assets from "./Components/Assets/Assets";
-import Transfer from "./Components/Transfer/Transfer";
+//import RecentTransactions from "./Components/RecentTransactions/RecentTransactions";
+//import Assets from "./Components/Assets/Assets";
+//import Transfer from "./Components/Transfer/Transfer";
 import Profile from "./Components/Profile/Profile";
 import Header from "./Components/Header";
-import NFTAssets from "./Components/NFT/NFTAssets";
+//import Home from "./Components/Home/home";
+import Search from "./Components/Search/search";
+import Wallet from "./Components/Wallets/wallet";
+import HomeIcon from "../assets/image/home.png";
+import ProfileIcon from "../assets/image/profile.png";
+import SearchIcon from "../assets/image/search.png";
+import WalletIcon from "../assets/image/wallet.png";
 
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import {
@@ -36,55 +42,45 @@ function Home(): JSX.Element {
   return (
     <Tab.Navigator
       shifting={false}
-      activeColor="#315399"
+      activeColor="red"
       // inactiveColor="#3e2465"
-      barStyle={{ backgroundColor: "white" }}>
-      <Tab.Screen
-        name="Assets"
-        options={{
-          tabBarLabel: "Assets",
-          tabBarIcon: ({ color, focused }) => {
-            return <FontAwesomeIcon icon={faCoins} color={color} size={20} />;
-          },
-        }}
-        component={Assets}
-      />
-      <Tab.Screen
-        name="Transactions"
-        options={{
-          tabBarLabel: "Transactions",
-          tabBarIcon: ({ color }) => (
-            <FontAwesomeIcon icon={faCreditCard} color={color} size={20} />
-          ),
-        }}
-        component={RecentTransactions}
-      />
-      <Tab.Screen
-        name="NFTAssets"
-        options={{
-          tabBarLabel: "NFTAssets",
-          tabBarIcon: ({ color, focused }) => {
-            return <FontAwesomeIcon icon={faRocket} color={color} size={20} />;
-          },
-        }}
-        component={NFTAssets}
-      />
-      <Tab.Screen
-        name="Transfer"
-        options={{
-          tabBarLabel: "Transfer",
-          tabBarIcon: ({ color }) => (
-            <FontAwesomeIcon icon={faPaperPlane} color={color} size={20} />
-          ),
-        }}
-        component={Transfer}
-      />
+      barStyle={{ backgroundColor: "black" }}>
+    {/* <Tab.Screen
+  name="Home"
+  options={{
+    tabBarLabel: null,
+    tabBarIcon: ({ color, focused }) => {
+      return <FontAwesomeIcon icon={faCoins} color={color} size={20} />;
+    },
+  }}
+  component={Home}
+/>*/}
+<Tab.Screen
+  name="Wallet"
+  options={{
+    tabBarLabel: null,
+    tabBarIcon: ({ color, focused }) => (
+      <FontAwesomeIcon icon={faCreditCard} color={color} size={20} />
+    ),
+  }}
+  component={Wallet}
+/>
 
-      <Tab.Screen
+<Tab.Screen
+  name="Search"
+  options={{
+    tabBarLabel: null,
+    tabBarIcon: ({ color, focused }) => (
+      <FontAwesomeIcon icon={faUser} color={color} size={20} />
+    ),
+  }}
+  component={Search}
+/>
+<Tab.Screen
         name="Profile"
         options={{
           tabBarLabel: "Profile",
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ color, focused}) => (
             <FontAwesomeIcon icon={faUser} color={color} size={20} />
           ),
         }}
@@ -103,12 +99,12 @@ function getHeaderTitle(route) {
   const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
 
   switch (routeName) {
-    case "Assets":
-      return "Assets";
-    case "Transfer":
-      return "Transfer";
-    case "Transactions":
-      return "Transactions";
+    case "Home":
+      return "Home";
+    case "Wallet":
+      return "Wallet";
+    case "Search":
+      return "Search";
     case "Profile":
       return "Profile";
   }
@@ -144,7 +140,8 @@ function App(): JSX.Element {
         {/* Navigation Drawer as a landing page */}
         <Stack.Screen
           name="DrawerNavigationRoutes"
-          component={Home}
+         // component={Home}
+         component={Wallet}
           // Hiding header for Navigation Drawer
           options={{ headerTitle: (props) => <Header /> }}
           // options={({ route }) => ({
